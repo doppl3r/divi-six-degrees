@@ -1,19 +1,15 @@
 <?php
+	// Child theme functions
+	function my_et_enqueue_styles() { wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' ); }
 
-function my_et_enqueue_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_script( 'divi', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery', 'divi-custom-script' ), '0.1.1', true );
-}
-add_action( 'wp_enqueue_scripts', 'my_et_enqueue_styles' );
+	// Initialize core class objects
+	require_once 'php/class-shortcodes.php';
+	require_once 'php/class-blog.php';
 
-/* === Add your own functions below this line ===
- * -------------------------------------------- */
+	// Enqueue child theme information
+	add_action( 'wp_enqueue_scripts', 'my_et_enqueue_styles' );
 
-
-
-
-
-
-
-
+	// Apply actions and filters
+	add_filter('init', 'Six_Shortcodes::add_shortcode'); // Add shortcode object
+	add_filter('the_content', 'Six_Blog::update_content', 1); // Update post content
 ?>
