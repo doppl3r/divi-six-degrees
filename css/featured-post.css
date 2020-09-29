@@ -1,4 +1,4 @@
-.featured-post { display: flex; align-items: center; border-top: 2px solid #A2AEBB; border-bottom: 2px solid #A2AEBB; margin: 77px 0; }
+.featured-post { display: flex; align-items: center; border-top: 2px solid #A2AEBB; border-bottom: 2px solid #A2AEBB; margin: 77px 0; width: 100%; }
 .featured-post img { width: 100%; }
 .featured-post h5 { font-size: 18px !important; }
 .featured-post a { font-weight: 600; font-family: 'Poppins'; }
