@@ -1,8 +1,15 @@
-.featured-post { display: flex; align-items: center; border-top: 2px solid #A2AEBB; border-bottom: 2px solid #A2AEBB; margin: 77px 0; width: 100%; }
+.featured-post { display: flex; align-items: center; border-top: 2px solid #A2AEBB; border-bottom: 2px solid #A2AEBB; margin: 77px 0; width: 100%; flex-wrap: wrap; }
 .featured-post img { width: 100%; }
 .featured-post h5 { font-size: 18px !important; }
-.featured-post a { font-weight: 600; font-family: 'Poppins'; }
+.featured-post a { font-size: 13px !important; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; font-family: 'Poppins'; color: #ea0000!important; transition: all 0.25s ease-in-out; }
+.featured-post a:hover { letter-spacing: 1.5px; color: #B90000!important; }
+.featured-post a:hover:after { font-family: 'ETmodules'!important; content: '$'!important; position: absolute!important; font-size: 16px!important; font-weight: normal!important; }
 .featured-post .thumbnail { padding-bottom: 75%; background-size: cover; background-position: center; background-color: #d5dbe2; }
 .featured-post .col { padding: 28px 20px; }
 .featured-post .col:first-of-type { padding-left: 0; width: 33%; }
 .featured-post .col:last-of-type { padding-right: 0; width: 66%; }
+
+@media(max-width: 800px) {
+    .featured-post .col:first-of-type { width: 100%; padding: 20px 0 12px; }
+    .featured-post .col:last-of-type { width: 100%; padding: 12px 0 20px; }
+}

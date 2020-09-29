@@ -73,7 +73,7 @@
                     <div class="col">
                         <h5>' . $title . '</h5>
                         <p>' . $content . '...</p>
-                        <a href="' . $link . '">Learn more</a>
+                        <a href="' . $link . '">Read more</a>
                     </div>
                 </div>
             ';
