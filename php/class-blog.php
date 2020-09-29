@@ -20,7 +20,7 @@
 
                 // Update content if more than 1 line exists
                 if (!empty($lines)) {
-                    $post = Six_Blog::get_random_post_by_category('Branding');
+                    $post = Six_Blog::get_random_post_by_category('Featured Content');
                     $featured = Six_Blog::get_featured_post_html($post);
                     array_splice($lines, $index, 0, array($featured)); // Insert separator HTML
                     $new_content = implode("\n", $lines); // Convert array back to string
