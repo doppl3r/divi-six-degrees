@@ -12,18 +12,20 @@
             $post_type = get_post_type();
             
             // Check if current post type is a blog entry
-            if ($post_type == 'post') {
-                $lines = explode("\n", $new_content);
-                $total = count($lines);
-                $percentage = 30 / 100; // 30% of page
-                $index = ceil($total * $percentage);
-
-                // Update content if more than 1 line exists
-                if (!empty($lines)) {
-                    $post = Six_Blog::get_random_post_by_category('Featured Content');
-                    $featured = Six_Blog::get_featured_post_html($post);
-                    array_splice($lines, $index, 0, array($featured)); // Insert separator HTML
-                    $new_content = implode("\n", $lines); // Convert array back to string
+            if (is_single()) {
+                if ($post_type == 'post') {
+                    $lines = explode("\n", $new_content);
+                    $total = count($lines);
+                    $percentage = 30 / 100; // 30% of page
+                    $index = ceil($total * $percentage);
+    
+                    // Update content if more than 1 line exists
+                    if (!empty($lines)) {
+                        $post = Six_Blog::get_random_post_by_category('Featured Content');
+                        $featured = Six_Blog::get_featured_post_html($post);
+                        array_splice($lines, $index, 0, array($featured)); // Insert separator HTML
+                        $new_content = implode("\n", $lines); // Convert array back to string
+                    }
                 }
             }
 

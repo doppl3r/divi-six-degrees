@@ -15,8 +15,14 @@
             $data = $atts['data'];
             $output = '';
             
-            if ($data == 'post') {
-                
+            if ($data == 'popup') {
+                // Enqueue popup libraries
+                wp_enqueue_style('popup');
+                wp_enqueue_script('popup');
+
+                // Pass target javascript variable
+                $target = $atts['target'];
+                wp_localize_script('popup', 'popupTarget', $target);
             }
 
             // Return output value (default empty)

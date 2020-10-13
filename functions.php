@@ -15,6 +15,6 @@
 	$six_shortcodes = new Six_Shortcodes();
 
 	// Apply actions and filters
-	add_filter('init', 'Six_Shortcodes::add_shortcode'); // Add shortcode object
 	add_filter('the_content', 'Six_Blog::update_content', 1); // Update post content
+	add_filter('init', 'Six_Shortcodes::add_shortcode'); // Add shortcode object
 ?>

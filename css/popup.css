@@ -1,0 +1,14 @@
+/* Global styling */
+.disable-scroll { overflow: hidden; }
+
+/* Popup styling */
+#popup { display: none; /* Hidden by default */ padding: 64px 16px; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 999999; }
+#popup.visible { display: block; }
+#popup .background { background-color: rgba(61, 69, 67, 0.6); position: fixed; top: 0; right: 0; bottom: 0; left: 0; }
+#popup .wrapper { background-color: #fff; border-radius: 4px; max-width: 1080px; width: 100%; margin: auto; height: calc(75vh); padding: 64px 24px 32px 32px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+#popup .wrapper .button.close { position: absolute; right: 0; top: 0; padding: 24px; color: #777; font-size: 32px; cursor: pointer; }
+#popup .wrapper .content { overflow-y: auto; max-height: calc(75vh - 96px); padding: 0 32px 0 0; }
+
+@media(max-width: 1080px) {
+    #popup .wrapper .content { padding-right: calc(10% - 32px); }
+}
