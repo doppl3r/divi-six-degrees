@@ -19,13 +19,16 @@
                     $percentage = 30 / 100; // 30% of page
                     $index = ceil($total * $percentage);
     
-                    // Update content if more than 1 line exists
+                    // Add featured content section if more than 1 line exists
                     if (!empty($lines)) {
                         $post = Six_Blog::get_random_post_by_category('Featured Content');
                         $featured = Six_Blog::get_featured_post_html($post);
                         array_splice($lines, $index, 0, array($featured)); // Insert separator HTML
                         $new_content = implode("\n", $lines); // Convert array back to string
                     }
+
+                    // Add social links to the side of the website
+                    $new_content .= Six_Blog::get_share_links();
                 }
             }
 
@@ -80,6 +83,31 @@
                 </div>
             ';
             return $html;
+        }
+
+        public static function get_share_links() {
+            $post = get_post();
+            $link = get_permalink();
+            $title = get_the_title();
+            $links = '
+                <!--To update these links, edit /wp-content/themes/Divi-Child/php/class-blog.php -->
+                <ul class="share-post vertical">
+                    <li><a href="javascript:window.print()" aria-label="print"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-print.svg"></a></li>
+                    <li><a href="mailto:?subject=Check out this post from Six Degrees!&body=I found this post from Six Degrees and thought you\'d enjoy it: ' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-mail.svg"></a></li>
+                    <li><a href="https://pinterest.com/pin/create/link/?url=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-pinterest.svg"></a></li>
+                    <li><a href="https://www.instagram.com/?url=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-instagram.svg"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-twitter.svg"></a></li>
+                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=' . $link . '&title=' . $title . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-linkedin.svg"></a></li>
+                    <li><a href="https://www.facebook.com/dialog/share?app_id=766555246789034&display=popup&href=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-facebook.svg"></a></li>
+                </ul>
+                <style>
+                    .share-post { list-style: none !important; padding: 0 !important; display: flex; flex-direction: column; line-height: initial !important; align-items: flex-start; position: fixed; bottom: 5%; left: 2% }
+                    .share-post li { padding: 12px 0 0 0; transition: all 0.25s ease-in-out; }
+                    .share-post li:hover { opacity: 0.5; }
+                    .share-post li a img { display: block; }
+                </style>
+            ';
+            return $links;
         }
     }
 ?>

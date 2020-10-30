@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="icon-circle-print" transform="translate(-21 -513)">
+    <path id="Path_1560" data-name="Path 1560" d="M16,0A16,16,0,1,1,0,16,16,16,0,0,1,16,0Z" transform="translate(21 513)" fill="#a9e5bb"/>
+    <path id="Path_1565" data-name="Path 1565" d="M0,0H24V24H0Z" transform="translate(25 517)" fill="none"/>
+    <path id="Path_1566" data-name="Path 1566" d="M19,8H5a3,3,0,0,0-3,3v6H6v4H18V17h4V11A3,3,0,0,0,19,8ZM16,19H8V14h8Zm3-7a1,1,0,1,1,1-1A1,1,0,0,1,19,12ZM18,3H6V7H18Z" transform="translate(25 517)" fill="#fff"/>
+  </g>
+</svg>
