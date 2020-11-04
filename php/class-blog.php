@@ -95,7 +95,6 @@
                     <li><a href="javascript:window.print()" aria-label="print"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-print.svg"></a></li>
                     <li><a href="mailto:?subject=Check out this post from Six Degrees!&body=I found this post from Six Degrees and thought you\'d enjoy it: ' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-mail.svg"></a></li>
                     <li><a href="https://pinterest.com/pin/create/link/?url=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-pinterest.svg"></a></li>
-                    <li><a href="https://www.instagram.com/?url=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-instagram.svg"></a></li>
                     <li><a href="https://twitter.com/intent/tweet?text=' . $title . '&url=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-twitter.svg"></a></li>
                     <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=' . $link . '&title=' . $title . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-linkedin.svg"></a></li>
                     <li><a href="https://www.facebook.com/dialog/share?app_id=766555246789034&display=popup&href=' . $link . '" target="_blank"><img src="/wp-content/themes/Divi-Child/img/social/icon-circle-facebook.svg"></a></li>
@@ -105,6 +104,10 @@
                     .share-post li { padding: 12px 0 0 0; transition: all 0.25s ease-in-out; }
                     .share-post li:hover { opacity: 0.5; }
                     .share-post li a img { display: block; }
+
+                    @media print {
+                        .share-post { display: none !important; }
+                    }
                 </style>
             ';
             return $links;
