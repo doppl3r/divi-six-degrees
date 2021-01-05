@@ -9,7 +9,8 @@
 .featured-post .col.right { padding-right: 0; width: 66%; }
 .featured-post .thumbnail { padding-bottom: 75%; background-size: cover; background-position: center; background-color: #d5dbe2; }
 .featured-post .featured-comment { display: none; position: absolute; top: 0; left: 0; background-color: rgba(35, 40, 45, 1); font-size: 12px; line-height: 16px; color: #fff; padding: 12px; width: 100%; }
-.featured-post .featured-comment a { color: #ea0000; font-weight: bold; }
+.featured-post .featured-comment a { color: #a0a5aa; }
+.featured-post .featured-comment a:before { content: "\f464"; color: #a0a5aa; font-size: 16px; font-family: 'dashicons'; vertical-align: top; }
 .featured-post .featured-comment strong { display: block; }
 .featured-post:hover .featured-comment { display: block; }
 

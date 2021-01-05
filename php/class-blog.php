@@ -21,11 +21,9 @@
                         $percentage = 30 / 100; // 30% of page
                         $index = ceil($total * $percentage);
         
-                        // Add featured content section if more than 1 line exists
+                        // Add featured shortcode if more than 1 line exists
                         if (!empty($lines)) {
-                            $post = Six_Blog::get_random_post_by_category('Featured Content');
-                            $featured = Six_Blog::get_featured_post_html($post);
-                            array_splice($lines, $index, 0, array($featured)); // Insert separator HTML
+                            array_splice($lines, $index, 0, '[six data="blog" type="featured" category="Featured Content"]'); // Insert separator HTML
                             $content = implode("\n", $lines); // Convert array back to string
                         }
 
@@ -65,24 +63,20 @@
             return $posts[0]; // Return first random post
         }
 
-        public static function get_featured_post_html($post, $is_shortcode = false) {
+        public static function get_featured_post_html($post) {
             // Load CSS if post is requested
             wp_enqueue_style('featured-post');
 
             // Popular featured post data
-            $thumbnail = get_the_post_thumbnail_url($post->ID, 'medium');
-            $shortcode = '[six data="blog" type="featured" category="Featured Content"]';
             $comment = '';
-            $title = $post->post_title;
+            $thumbnail = get_the_post_thumbnail_url($post->ID, 'medium');
             $content = substr(wp_strip_all_tags($post->post_content, true), 0, 150);
             $link = get_post_permalink($post->ID);
-
-            // Prevent nested shortcodes
-            if ($is_shortcode == false) $shortcode = '[' . $shortcode . ']';
+            $title = $post->post_title;
             
             // Add instructions for admin users
             if (current_user_can('edit_pages') == true) {
-                $comment = '<div class="featured-comment">Need to move this featured post? Click <a href="/wp-admin/post.php?post=' . get_the_ID() . '&action=edit">Edit Post</a> and paste the following shortcode to a new location: <strong>' . $shortcode . '</strong></div>';
+                $comment = '<div class="featured-comment">Need to move this featured post? Click <a href="/wp-admin/post.php?post=' . get_the_ID() . '&action=edit">Edit Post</a> and add or move the following shortcode to the post: <strong>[six data="blog" type="featured" category="Featured Content"]</strong></div>';
             }
             
             // Update HTML output string

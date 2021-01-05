@@ -30,7 +30,7 @@
                 if ($type == 'featured') {
                     if (empty($category)) $category = 'Uncategorized'; // Resolve default if empty
                     $post = Six_Blog::get_random_post_by_category($category);
-                    $output .= Six_Blog::get_featured_post_html($post, true);
+                    $output .= Six_Blog::get_featured_post_html($post);
                 }
             }
 
