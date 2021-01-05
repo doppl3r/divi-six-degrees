@@ -76,7 +76,7 @@
             
             // Add instructions for admin users
             if (current_user_can('edit_pages') == true) {
-                $comment = '<div class="featured-comment">Need to move this featured post? Click <a href="/wp-admin/post.php?post=' . get_the_ID() . '&action=edit">Edit Post</a> and add or move the following shortcode to the post: <strong>[six data="blog" type="featured" category="Featured Content"]</strong></div>';
+                $comment = '<div class="featured-comment">Need to move this featured post? Click <a href="/wp-admin/post.php?post=' . get_the_ID() . '&action=edit">Edit Post</a> and add or edit the following shortcode: <strong>[six data="blog" type="featured" category="Featured Content"]</strong></div>';
             }
             
             // Update HTML output string
