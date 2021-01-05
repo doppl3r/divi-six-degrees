@@ -12,8 +12,10 @@
         }
 
         public function update_shortcode($atts, $content = null) {
-            $data = $atts['data'];
             $output = '';
+            $category = $atts['category'];
+            $data = $atts['data'];
+            $type = $atts['type'];
             
             if ($data == 'popup') {
                 // Enqueue popup libraries
@@ -23,6 +25,13 @@
                 // Pass target javascript variable
                 $target = $atts['target'];
                 wp_localize_script('popup', 'popupTarget', $target);
+            }
+            else if ($data == 'blog') {
+                if ($type == 'featured') {
+                    if (empty($category)) $category = 'Uncategorized'; // Resolve default if empty
+                    $post = Six_Blog::get_random_post_by_category($category);
+                    $output .= Six_Blog::get_featured_post_html($post, true);
+                }
             }
 
             // Return output value (default empty)
