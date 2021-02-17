@@ -159,7 +159,7 @@
     // Update Country input from Six Degrees Child Theme library
     jQuery(document).ready(function($) {
         $.getJSON('https://www.six-degrees.com/wp-json/user/data').done(function (response) {
-            $('#COUNTRY').val(response.country);
+            $('[name*="COUNTRY"]').val(response.country);
         });
     });
 </script>
